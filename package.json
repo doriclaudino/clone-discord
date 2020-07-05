@@ -1,7 +1,19 @@
 {
-  "name": "discord",
+  "name": "clone-discord",
+  "author": "doriclaudino <dori.claudino@gmail.com>",
+  "repository": "https://github.com/doriclaudino/clone-discord.git",
+  "description": "discord clone app",
   "version": "0.1.0",
   "private": true,
+  "keywords": [
+    "clone",
+    "discord",
+    "javascript",
+    "reactjs",
+    "react",
+    "typescript",
+    "creative"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
