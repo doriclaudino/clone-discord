@@ -1,3 +1,5 @@
+import * as faker from "faker";
+
 interface serverMockData {
   hasNotifications?: boolean;
   mentions?: number;
@@ -22,3 +24,45 @@ export const serverData = [
   },
   { hasNotifications: true, imageUrl: "https://picsum.photos/id/237/200" },
 ];
+
+interface userMockData {
+  name: string;
+  online?: boolean;
+  isUser?: boolean; //or bot
+  avatarImg?: string;
+}
+
+/**
+ * my user data
+ */
+export const doriClaudinoUser = {
+  name: "doriclaudino",
+  online: true,
+  isUser: true,
+  avatarImg:
+    "https://media-exp1.licdn.com/dms/image/C4E03AQEhW7P9bQ_YSA/profile-displayphoto-shrink_200_200/0?e=1599696000&v=beta&t=B70hapYqOFsQ7tuXkkKyL60S5udj-bMzKcIwy_iI2aY",
+};
+
+/**
+ * my bot user data
+ */
+export const doriClaudinoBot = {
+  name: "doriclaudinoBot",
+  online: true,
+  isUser: false,
+  avatarImg: "https://robohash.org/doriclaudinoBot",
+};
+
+export const usersData: userMockData[] = [doriClaudinoUser, doriClaudinoBot];
+
+/**
+ * random data generated
+ */
+for (let index = 0; index < 10; index++) {
+  usersData.push({
+    name: faker.name.firstName(),
+    online: false,
+    isUser: true,
+    avatarImg: faker.image.avatar(),
+  });
+}

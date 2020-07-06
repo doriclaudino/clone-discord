@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   grid-area: UL;
@@ -61,7 +61,11 @@ export const User = styled.div`
   }
 `;
 
-export const Avatar = styled.div`
+interface AvatarProps {
+  avatarImg?: string;
+}
+
+export const Avatar = styled.div<AvatarProps>`
   flex-shrink: 0;
   width: 32px;
   height: 32px;
@@ -70,4 +74,7 @@ export const Avatar = styled.div`
   &.bot {
     background-color: var(--mention-detail);
   }
+  background-image: ${(props) =>
+    props.avatarImg ? `url(${props.avatarImg})` : "none"};
+  background-size: contain;
 `;
