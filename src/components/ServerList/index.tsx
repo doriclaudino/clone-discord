@@ -1,27 +1,16 @@
-  
-import React from 'react';
-
-import ServerButton from '../ServerButton';
-
-import { Container, Separator } from './styles';
+import React from "react";
+import ServerButton from "../ServerButton";
+import { Container, Separator } from "./styles";
+import { serverData } from "../../mock/mock-data";
 
 const ServerList: React.FC = () => {
   return (
     <Container>
       <ServerButton isHome />
       <Separator />
-      <ServerButton />
-      <ServerButton hasNotifications />
-      <ServerButton mentions={3} />
-      <ServerButton />
-      <ServerButton />
-      <ServerButton />
-      <ServerButton hasNotifications />
-      <ServerButton />
-      <ServerButton />
-      <ServerButton mentions={72} />
-      <ServerButton />
-      <ServerButton />
+      {serverData.map((server_data, index) => (
+        <ServerButton key={index} {...server_data} />
+      ))}
     </Container>
   );
 };

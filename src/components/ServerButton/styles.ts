@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { ServerButtonProps } from '.';
 
 export const Button = styled.button<ServerButtonProps>`
-  display: flex;
+
+: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
@@ -55,4 +56,7 @@ export const Button = styled.button<ServerButtonProps>`
     background-color: ${(props) =>
       props.isHome ? 'var(--rocketseat)' : 'var(--discord)'};
   }
+  background-image: ${(props) =>
+    props.imageUrl ? `url(${props.imageUrl})` : "none"};
+  background-size: contain;
 `;

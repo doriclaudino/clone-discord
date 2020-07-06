@@ -9,6 +9,7 @@ export interface ServerButtonProps {
   isHome?: boolean;
   hasNotifications?: boolean;
   mentions?: number;
+  imageUrl?:string;
 }
 
 const ServerButton: React.FC<ServerButtonProps> = ({
@@ -16,6 +17,7 @@ const ServerButton: React.FC<ServerButtonProps> = ({
   isHome,
   hasNotifications,
   mentions,
+  imageUrl
 }) => {
   return (
     <Button
@@ -23,6 +25,7 @@ const ServerButton: React.FC<ServerButtonProps> = ({
       hasNotifications={hasNotifications}
       mentions={mentions}
       className={selected ? 'active' : ''}
+      imageUrl={imageUrl}
     >
       {isHome && <img src={Logo} alt="Rocketseat" />}
     </Button>
