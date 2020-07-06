@@ -1,4 +1,5 @@
 import * as faker from "faker";
+import { fake } from "faker";
 
 interface serverMockData {
   hasNotifications?: boolean;
@@ -64,5 +65,33 @@ for (let index = 0; index < 10; index++) {
     online: false,
     isUser: true,
     avatarImg: faker.image.avatar(),
+  });
+}
+
+interface channelMessageMockData {
+  author: string;
+  date: Date;
+  authorImg?: string;
+  content?: string | React.Component;
+  hasMention?: boolean;
+  isBot?: boolean;
+}
+
+const getRandomInt = (min: number = 0, max: number = 10) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+export const mockChatMessages: channelMessageMockData[] = [];
+for (let index = 0; index < 6; index++) {
+  let randomUser = usersData[getRandomInt(0, usersData.length)];
+  mockChatMessages.push({
+    author: randomUser.name,
+    authorImg: randomUser.avatarImg,
+    date: faker.date.recent(30),
+    hasMention: false,
+    isBot: !randomUser.isUser,
+    content: faker.lorem.sentence(),
   });
 }

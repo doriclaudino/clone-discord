@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
-import ChannelMessage, { Mention } from '../ChannelMessage';
-import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
+import React, { useRef, useEffect } from "react";
+import ChannelMessage, { Mention } from "../ChannelMessage";
+import { Container, Messages, InputWrapper, Input, InputIcon } from "./styles";
+import { mockChatMessages, doriClaudinoBot, doriClaudinoUser } from "../../mock/mock-data";
 
 const ChannelData: React.FC = () => {
   const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -16,21 +17,20 @@ const ChannelData: React.FC = () => {
   return (
     <Container>
       <Messages ref={messagesRef}>
-        {Array.from(Array(3).keys()).map((n) => (
+        {mockChatMessages.map((chatData, index) => (
           <ChannelMessage
-            key={n}
-            author="doriclaudino"
-            date="24/06/2020"
-            content="Cade voces po"
+            {...chatData}
+            key={index}
+            date={chatData.date.toLocaleString()}
           />
         ))}
-
         <ChannelMessage
-          author="doriclaudino"
-          date="24/06/2020"
+          authorImg={doriClaudinoBot.avatarImg}
+          author={doriClaudinoBot.name}
+          date={new Date().toLocaleString()}
           content={
             <>
-              <Mention>@doriclaudino</Mention> ta online?
+              <Mention>@{doriClaudinoUser.name}</Mention> ta online?
             </>
           }
           hasMention

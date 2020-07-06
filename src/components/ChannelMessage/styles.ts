@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -16,7 +16,11 @@ export const Container = styled.div`
   }
 `;
 
-export const Avatar = styled.div`
+interface AvatarProps {
+  avatarImg?: string;
+}
+
+export const Avatar = styled.div<AvatarProps>`
   width: 40px;
   height: 40px;
   background-color: var(--secondary);
@@ -24,6 +28,9 @@ export const Avatar = styled.div`
   &.bot {
     background-color: var(--mention-detail);
   }
+  background-image: ${(props) =>
+    props.avatarImg ? `url(${props.avatarImg})` : "none"};
+  background-size: contain;
 `;
 
 export const Message = styled.div`
