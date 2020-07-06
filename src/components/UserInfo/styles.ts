@@ -16,11 +16,17 @@ export const Profile = styled.div`
   align-items: center;
 `;
 
-export const Avatar = styled.div`
+interface AvatarProps {
+  avatarImg?: string;
+}
+export const Avatar = styled.div<AvatarProps>`
   width: 32px;
   height: 32px;
   border-radius: 50%;
   background-color: var(--gray);
+  background-image: ${(props) =>
+    props.avatarImg ? `url(${props.avatarImg})` : "none"};
+  background-size: contain;
 `;
 
 export const UserData = styled.div`
