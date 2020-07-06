@@ -1,3 +1,7 @@
+## Current project stage
+![Current project stage print-screen](https://i.imgur.com/oY7fsq3.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
